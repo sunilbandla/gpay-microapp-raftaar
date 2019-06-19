@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Offer } from '../services/Offer';
 import { OfferService } from '../services/offer.service';
 
@@ -19,6 +19,7 @@ export class OfferDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private offerService: OfferService,
     private matSnackbar: MatSnackBar,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -39,9 +40,14 @@ export class OfferDetailsComponent implements OnInit {
     });
   }
 
-  startPayment() {
+  startPayment(offer: Offer) {
+    this.offerService.saveAcceptedOffer(offer);
     this.matSnackbar.open("Payment successful", "Close", {
       duration: 2000,
     });
+    // Redirect to home page
+    setTimeout(() => {
+      this.router.navigateByUrl('/');
+    }, 3000);
   }
 }

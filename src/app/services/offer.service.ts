@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Offer } from './Offer';
 import { OffersResponse } from './OffersResponse';
 import { environment } from '../../environments/environment';
 
@@ -8,9 +9,51 @@ import { environment } from '../../environments/environment';
 })
 export class OfferService {
 
+  readonly RECOMMENDED_OFFERS_KEY = 'raftaar.recommendedOffers';
+  readonly ACCEPTED_OFFERS_KEY = 'raftaar.acceptedOffers';
+  readonly INVITED_OFFERS_KEY = 'raftaar.invitedOffers';
+
   constructor(
     private http: HttpClient,
   ) { }
+
+  saveAcceptedOffer(offer: Offer) {
+    const savedAcceptedOffers = this.getSavedAcceptedOffers() || [];
+    savedAcceptedOffers.push(offer);
+    this.saveAcceptedOffers(savedAcceptedOffers);
+    this.removeOfferFromSavedRecommendedOffers(offer);
+    this.removeOfferFromSavedInvitedOffers(offer);
+  }
+
+  removeOfferFromSavedRecommendedOffers(offer: Offer) {
+    // Remove offer from recommended offers.
+    const savedOffers = this.getSavedRecommendedOffers();
+    if (!savedOffers) {
+      return;
+    }
+    const offers = this.removeOfferFromOffers(offer, savedOffers);
+    this.saveRecommendedOffers(offers);
+  }
+
+  removeOfferFromSavedInvitedOffers(offer: Offer) {
+    // Remove offer from invited offers.
+    const savedOffers = this.getSavedInvitedOffers();
+    if (!savedOffers) {
+      return;
+    }
+    const offers = this.removeOfferFromOffers(offer, savedOffers);
+    this.saveInvitedOffers(offers);
+  }
+
+  removeOfferFromOffers(offer: Offer, offers: Offer[]) {
+    const savedOfferIndex = offers
+      .findIndex(savedOffer => savedOffer.id === offer.id);
+    if (savedOfferIndex === -1) {
+      return offers;
+    }
+    offers.splice(savedOfferIndex, 1);
+    return offers;
+  }
 
   getOffers() {
     return this.http.get(environment.baseUrl + '/assets/offers.json');
@@ -29,26 +72,76 @@ export class OfferService {
   }
 
   getRecommendedOffers() {
-    return this.getOffers().toPromise().then(
-      (offers: OffersResponse) => {
-        return offers.recommendedOffers;
-      }
-    )
+    if (!this.getSavedRecommendedOffers()) {
+      return this.getOffers().toPromise().then(
+        (offers: OffersResponse) => {
+          this.saveRecommendedOffers(offers.recommendedOffers);
+          return offers.recommendedOffers;
+        }
+      )
+    }
+    else {
+      return Promise.resolve(this.getSavedRecommendedOffers());
+    }
   }
 
   getInvitedOffers() {
-    return this.getOffers().toPromise().then(
-      (offers: OffersResponse) => {
-        return offers.invitedOffers;
-      }
-    )
+    if (!this.getSavedInvitedOffers()) {
+      return this.getOffers().toPromise().then(
+        (offers: OffersResponse) => {
+          this.saveInvitedOffers(offers.invitedOffers);
+          return offers.invitedOffers;
+        }
+      )
+    }
+    else {
+      return Promise.resolve(this.getSavedInvitedOffers());
+    }
   }
 
   getAcceptedOffers() {
-    return this.getOffers().toPromise().then(
-      (offers: OffersResponse) => {
-        return offers.acceptedOffers;
-      }
-    )
+    if (!this.getSavedAcceptedOffers()) {
+      return this.getOffers().toPromise().then(
+        (offers: OffersResponse) => {
+          this.saveAcceptedOffers(offers.acceptedOffers);
+          return offers.acceptedOffers;
+        }
+      )
+    }
+    else {
+      return Promise.resolve(this.getSavedAcceptedOffers());
+    }
+  }
+
+  private getSavedAcceptedOffers() {
+    return OfferService.getSavedValue(this.ACCEPTED_OFFERS_KEY);
+  }
+
+  private getSavedInvitedOffers() {
+    return OfferService.getSavedValue(this.INVITED_OFFERS_KEY);
+  }
+
+  private getSavedRecommendedOffers() {
+    return OfferService.getSavedValue(this.RECOMMENDED_OFFERS_KEY);
+  }
+
+  private saveAcceptedOffers(offers: Offer[]) {
+    sessionStorage.setItem(this.ACCEPTED_OFFERS_KEY, JSON.stringify(offers));
+  }
+
+  private saveInvitedOffers(offers: Offer[]) {
+    sessionStorage.setItem(this.INVITED_OFFERS_KEY, JSON.stringify(offers));
+  }
+
+  private saveRecommendedOffers(offers: Offer[]) {
+    sessionStorage.setItem(this.RECOMMENDED_OFFERS_KEY, JSON.stringify(offers));
+  }
+
+  private static getSavedValue(key: string) {
+    const offers = sessionStorage.getItem(key);
+    if (!offers) {
+      return;
+    }
+    return JSON.parse(offers);
   }
 }

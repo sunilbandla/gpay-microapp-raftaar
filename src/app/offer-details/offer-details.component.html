@@ -2,6 +2,10 @@
 <h3 *ngIf="isOfferIdPresent && isLoading">Loading offer ...</h3>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
+<a mat-raised-button [routerLink]="['/']">View all available offers.</a>
+<br />
+<br />
+
 <mat-card class="card-container" *ngIf="isOfferFound">
   <mat-card-header>
     <div mat-card-avatar class="header-image"
@@ -15,7 +19,7 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary"
-      (click)="startPayment()">
+      (click)="startPayment(offer)">
       Pay
     </button>
     <button mat-raised-button color="accent" class="shareButton">Share</button>
