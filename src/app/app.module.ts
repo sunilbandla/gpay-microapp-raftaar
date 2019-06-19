@@ -1,18 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCardModule, MatExpansionModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DetailsComponent } from './details/details.component';
+import { OfferDetailsComponent } from './offer-details/offer-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OfferService } from './services/offer.service';
+import { OfferComponent } from './offer/offer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent
+    OfferDetailsComponent,
+    OfferComponent
   ],
   imports: [
     BrowserModule,
@@ -20,8 +24,12 @@ import { DetailsComponent } from './details/details.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatExpansionModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    OfferService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

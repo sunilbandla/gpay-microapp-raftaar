@@ -1,0 +1,13 @@
+$light-gray: #ddd;
+
+mat-expansion-panel {
+  border-top: 5px solid $light-gray;
+}
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid lightgray;
+}
+
+mat-panel-title {
+  font-weight: bold;
+}
