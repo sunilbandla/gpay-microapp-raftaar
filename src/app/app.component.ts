@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'gpay-microapp-raftaar';
+  offerId = 'gpay-microapp-raftaar-offer-1';
 }
