@@ -89,8 +89,10 @@ export class OfferService {
     if (!this.getSavedInvitedOffers()) {
       return this.getOffers().toPromise().then(
         (offers: OffersResponse) => {
-          this.saveInvitedOffers(offers.invitedOffers);
-          return offers.invitedOffers;
+          const invitedOffers = this.removeAcceptedOffersFromInvitedOffers(offers.invitedOffers,
+                                                                           this.getSavedAcceptedOffers() || []);
+          this.saveInvitedOffers(invitedOffers);
+          return invitedOffers;
         }
       )
     }
@@ -111,6 +113,14 @@ export class OfferService {
     else {
       return Promise.resolve(this.getSavedAcceptedOffers());
     }
+  }
+  
+  private removeAcceptedOffersFromInvitedOffers(invitedOffers, acceptedOffers) {
+    const acceptedOfferIdToOffer = acceptedOffers.reduce((acc, offer) => {
+      acc[offer.id] = offer;
+      return acc;
+    }, {});
+    return invitedOffers.filter(offer => !acceptedOfferIdToOffer[offer.id]);
   }
 
   private getSavedAcceptedOffers() {
