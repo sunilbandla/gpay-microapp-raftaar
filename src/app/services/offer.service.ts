@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Offer } from './Offer';
 import { OffersResponse } from './OffersResponse';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ import { OffersResponse } from './OffersResponse';
 export class OfferService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   getOffers() {
-    return this.http.get('/assets/offers.json');
+    return this.http.get(environment.baseUrl + '/assets/offers.json');
   }
 
   getRecommendedOffers() {
