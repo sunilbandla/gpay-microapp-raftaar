@@ -23,7 +23,25 @@
         You are invited.
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>Holy cow</p>
+
+    <div *ngFor="let offer of invitedOffers">
+      <offer [offer]="offer"></offer>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header class="mat-elevation-z2">
+      <mat-panel-title>
+        Accepted offers
+      </mat-panel-title>
+      <mat-panel-description>
+        Pay for these.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div *ngFor="let offer of acceptedOffers">
+      <offer [offer]="offer"></offer>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>
 

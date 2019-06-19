@@ -16,6 +16,18 @@ export class OfferService {
     return this.http.get(environment.baseUrl + '/assets/offers.json');
   }
 
+  getOffer(id: number) {
+    return this.getOffers().toPromise().then(
+      (offers: OffersResponse) => {
+        return [
+          ...offers.recommendedOffers,
+          ...offers.invitedOffers,
+          ...offers.acceptedOffers,
+        ].find(offer => offer.id === id);
+      }
+    )
+  }
+
   getRecommendedOffers() {
     return this.getOffers().toPromise().then(
       (offers: OffersResponse) => {

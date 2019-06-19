@@ -1,3 +1,23 @@
-<p>
-  details works!
-</p>
+<h3 *ngIf="isOfferIdPresent && !isLoading && !isOfferFound">Invalid offer.</h3>
+<h3 *ngIf="isOfferIdPresent && isLoading">Loading offer ...</h3>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<mat-card class="card-container" *ngIf="isOfferFound">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"
+         [style.backgroundImage]="'url('+ offer.iconUrl +')'">
+    </div>
+    <mat-card-title>{{ offer.title }}</mat-card-title>
+    <mat-card-subtitle>By {{ offer.merchantName }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ offer.description }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary"
+      (click)="startPayment()">
+      Pay
+    </button>
+    <button mat-raised-button color="accent" class="shareButton">Share</button>
+  </mat-card-actions>
+</mat-card>

@@ -9,6 +9,7 @@ import { OfferService } from '../services/offer.service';
 export class HomeComponent implements OnInit {
   recommendedOffers;
   invitedOffers;
+  acceptedOffers;
 
   constructor(
     private offerService: OfferService
@@ -23,6 +24,10 @@ export class HomeComponent implements OnInit {
     this.offerService.getInvitedOffers()
       .then(offers => {
         this.invitedOffers = offers;
+      });
+    this.offerService.getAcceptedOffers()
+      .then(offers => {
+        this.acceptedOffers = offers;
       });
   }
 
