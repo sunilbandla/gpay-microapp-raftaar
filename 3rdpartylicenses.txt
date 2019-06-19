@@ -61,6 +61,8 @@ THE SOFTWARE.
 
 @angular/material/card
 
+@angular/material/expansion
+
 @angular/platform-browser
 MIT
 

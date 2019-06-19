@@ -1,0 +1,47 @@
+{
+  "recommendedOffers": [{
+    "id": 1,
+    "title": "Best offer",
+    "description": "This is the best offer ever.",
+    "detailsUrl": "google.com",
+    "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
+    "merchantName": "Larry Page"
+  }, {
+    "id": 2,
+    "title": "Cool offer",
+    "description": "This is the coolest offer ever.",
+    "detailsUrl": "google.org",
+    "iconUrl": "https://material.angular.io/favicon.ico",
+    "merchantName": "Sergey Brin"
+  }],
+  "invitedOffers": [{
+    "id": 3,
+    "title": "Best invited offer",
+    "description": "This is the best offer ever.",
+    "detailsUrl": "google.com",
+    "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
+    "merchantName": "Larry Page"
+  }, {
+    "id": 4,
+    "title": "Cool invited offer",
+    "description": "This is the coolest offer ever.",
+    "detailsUrl": "google.org",
+    "iconUrl": "https://material.angular.io/favicon.ico",
+    "merchantName": "Sergey Brin"
+  }],
+  "acceptedOffers": [{
+    "id": 5,
+    "title": "Best accepted offer",
+    "description": "This is the best offer ever.",
+    "detailsUrl": "google.com",
+    "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
+    "merchantName": "Larry Page"
+  }, {
+    "id": 6,
+    "title": "Cool accepted offer",
+    "description": "This is the coolest offer ever.",
+    "detailsUrl": "google.org",
+    "iconUrl": "https://material.angular.io/favicon.ico",
+    "merchantName": "Sergey Brin"
+  }]
+}
