@@ -3,29 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Offer } from '../services/Offer';
 import { OfferService } from '../services/offer.service';
-
-// https://developers.google.com/pay/api/web/reference/object#PaymentDataRequest
-const paymentRequest = {
-  apiVersion: 2,
-  apiVersionMinor: 0,
-  allowedPaymentMethods: [{
-    type: 'UPI',
-    parameters: {
-      'payeeVpa': 'dim-sum-dko@icici',
-      'payeeName': 'Dko Dim Sum',
-      'mcc': '0000',
-      'transactionReferenceId': 1,
-      'transactionId': 1,
-    },
-    tokenizationSpecification: {type: 'DIRECT', parameters: {}}
-  }],
-  merchantInfo: {merchantId: 'Example Merchant'},
-  transactionInfo: {
-      totalPriceStatus: 'FINAL',
-      totalPrice: 0,
-      currencyCode: 'INR'
-  }
-};
+import {PaymentService} from '../services/payment.service';
 
 @Component({
   selector: 'offer-details',
@@ -43,6 +21,7 @@ export class OfferDetailsComponent implements OnInit {
     private offerService: OfferService,
     private matSnackbar: MatSnackBar,
     private router: Router,
+    private paymentService: PaymentService
   ) { }
 
   ngOnInit() {
@@ -64,11 +43,12 @@ export class OfferDetailsComponent implements OnInit {
   }
   
   startPayment(offer: Offer) {
-    paymentRequest.transactionInfo.totalPrice = totalPrice
-    microapps.requestPayment(paymentRequest).then((response) => {
-      onPaymentSuccess(offer);
-    }).catch((error) => {
-      onPaymentFailure(`An error occurred: ${error}`);
+    this.paymentService.startPayment(offer)
+      .then((response) => {
+        console.log(response);
+        this.onPaymentSuccess(offer);
+      }).catch((error) => {
+        this.onPaymentFailure(`An error occurred: ${error}`);
     });
   };
 
@@ -87,5 +67,9 @@ export class OfferDetailsComponent implements OnInit {
     this.matSnackbar.open(`Payment failed.\n ${message}`, "Close", {
       duration: 2000,
     });
+  }
+
+  share(offer: Offer) {
+    OfferService.shareOffer(offer);
   }
 }

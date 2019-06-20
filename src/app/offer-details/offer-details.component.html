@@ -19,9 +19,12 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary"
-      (click)="startPayment(offer)">
+            *ngIf="!offer.isAccepted"
+            (click)="startPayment(offer)">
       Pay
     </button>
-    <button mat-raised-button color="accent" class="shareButton">Share</button>
+    <button mat-raised-button color="accent"
+            [ngClass]="{ 'shareButton': !offer.isAccepted }"
+            (click)="share(offer)">Share</button>
   </mat-card-actions>
 </mat-card>

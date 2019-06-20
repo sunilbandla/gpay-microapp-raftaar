@@ -10,7 +10,12 @@
     <p>{{ offer.description }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-raised-button [routerLink]="[ '/offers', offer.id ]">Accept offer</a>
-    <button mat-raised-button color="accent" class="shareButton">Share</button>
+    <a mat-raised-button [routerLink]="[ '/offers', offer.id ]"
+       *ngIf="!offer.isAccepted">
+      Accept offer
+    </a>
+    <button mat-raised-button color="accent"
+            [ngClass]="{ 'shareButton': !offer.isAccepted }"
+            (click)="share(offer)">Share</button>
   </mat-card-actions>
 </mat-card>

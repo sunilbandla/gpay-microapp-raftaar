@@ -4,6 +4,8 @@ import { Offer } from './Offer';
 import { OffersResponse } from './OffersResponse';
 import { environment } from '../../environments/environment';
 
+declare const microapps: any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +20,7 @@ export class OfferService {
   ) { }
 
   saveAcceptedOffer(offer: Offer) {
+    offer.isAccepted = true;
     const savedAcceptedOffers = this.getSavedAcceptedOffers() || [];
     savedAcceptedOffers.push(offer);
     this.saveAcceptedOffers(savedAcceptedOffers);
@@ -89,8 +92,9 @@ export class OfferService {
     if (!this.getSavedInvitedOffers()) {
       return this.getOffers().toPromise().then(
         (offers: OffersResponse) => {
-          const invitedOffers = this.removeAcceptedOffersFromInvitedOffers(offers.invitedOffers,
-                                                                           this.getSavedAcceptedOffers() || []);
+          const invitedOffers = this.removeAcceptedOffersFromInvitedOffers(
+            offers.invitedOffers,
+            this.getSavedAcceptedOffers() || []);
           this.saveInvitedOffers(invitedOffers);
           return invitedOffers;
         }
@@ -105,6 +109,8 @@ export class OfferService {
     if (!this.getSavedAcceptedOffers()) {
       return this.getOffers().toPromise().then(
         (offers: OffersResponse) => {
+          offers.acceptedOffers
+            .every(offer => offer.isAccepted = true);
           this.saveAcceptedOffers(offers.acceptedOffers);
           return offers.acceptedOffers;
         }
@@ -113,6 +119,13 @@ export class OfferService {
     else {
       return Promise.resolve(this.getSavedAcceptedOffers());
     }
+  }
+
+  static shareOffer(offer: Offer) {
+    microapps.requestSharing({
+      text: 'Check out Raftaar!',
+      url: `https://microapps.google.com/com.google.internal.microhack.app9?offerId=${offer.id}`,
+    });
   }
   
   private removeAcceptedOffersFromInvitedOffers(invitedOffers, acceptedOffers) {

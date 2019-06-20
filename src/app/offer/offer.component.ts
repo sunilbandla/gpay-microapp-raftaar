@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Offer } from '../services/Offer';
+import { OfferService } from '../services/offer.service';
 
 @Component({
   selector: 'offer',
@@ -11,9 +12,12 @@ export class OfferComponent implements OnInit {
   @Input()
   offer: Offer;
 
-  constructor() { }
+  constructor(private offerService: OfferService) { }
 
   ngOnInit() {
   }
 
+  share(offer: Offer) {
+    OfferService.shareOffer(offer);
+  }
 }
