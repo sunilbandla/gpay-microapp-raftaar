@@ -1,0 +1,13 @@
+@import "../../variables";
+
+mat-expansion-panel {
+  border-top: 5px solid $light-gray;
+}
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid lightgray;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}

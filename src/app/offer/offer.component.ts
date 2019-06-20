@@ -12,7 +12,7 @@ export class OfferComponent implements OnInit {
   @Input()
   offer: Offer;
 
-  constructor(private offerService: OfferService) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -21,7 +21,4 @@ export class OfferComponent implements OnInit {
     OfferService.shareOffer(offer);
   }
 
-  getOfferExpirationTime(offer: Offer) {
-    return OfferService.getOfferExpirationTime(offer);
-  }
 }

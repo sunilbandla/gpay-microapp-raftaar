@@ -10,13 +10,23 @@ import { OfferDetailsComponent } from './offer-details/offer-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OfferService } from './services/offer.service';
 import { OfferComponent } from './offer/offer.component';
+import { OfferHeaderComponent } from './offer-header/offer-header.component';
+import { AcceptedOffersComponent } from './accepted-offers/accepted-offers.component';
+import { OfferListComponent } from './offer-list/offer-list.component';
+import { InvitedOffersComponent } from './invited-offers/invited-offers.component';
+import { RecommendedOffersComponent } from './recommended-offers/recommended-offers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OfferDetailsComponent,
-    OfferComponent
+    OfferComponent,
+    OfferHeaderComponent,
+    AcceptedOffersComponent,
+    OfferListComponent,
+    InvitedOffersComponent,
+    RecommendedOffersComponent
   ],
   imports: [
     BrowserModule,

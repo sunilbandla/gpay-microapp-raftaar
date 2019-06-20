@@ -1,0 +1,11 @@
+<mat-card-header>
+  <div mat-card-avatar class="header-image"
+       [style.backgroundImage]="'url('+ offer.iconUrl +')'">
+  </div>
+  <mat-card-title>{{ offer.title }}</mat-card-title>
+  <mat-card-subtitle>By {{ offer.merchantName }}</mat-card-subtitle>
+  <div class="price-container">
+    <mat-card-title>{{ offer.price | currency:'INR' }}</mat-card-title>
+    <mat-card-subtitle>{{ getOfferExpirationTime(offer) }}</mat-card-subtitle>
+  </div>
+</mat-card-header>

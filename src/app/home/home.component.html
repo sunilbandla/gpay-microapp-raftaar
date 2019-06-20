@@ -1,47 +1,8 @@
 <mat-accordion multi="true">
-  <mat-expansion-panel expanded="true">
-    <mat-expansion-panel-header class="mat-elevation-z2">
-      <mat-panel-title>
-        Recommended offers
-      </mat-panel-title>
-      <mat-panel-description>
-        Try these first.
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+  <recommended-offers></recommended-offers>
 
-    <div *ngFor="let offer of recommendedOffers">
-      <offer [offer]="offer"></offer>
-    </div>
-  </mat-expansion-panel>
+  <invited-offers></invited-offers>
 
-  <mat-expansion-panel expanded="true">
-    <mat-expansion-panel-header class="mat-elevation-z2">
-      <mat-panel-title>
-        Invited offers
-      </mat-panel-title>
-      <mat-panel-description>
-        You are invited.
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <div *ngFor="let offer of invitedOffers">
-      <offer [offer]="offer"></offer>
-    </div>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel expanded="true">
-    <mat-expansion-panel-header class="mat-elevation-z2">
-      <mat-panel-title>
-        Accepted offers
-      </mat-panel-title>
-      <mat-panel-description>
-        Pay for these.
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <div *ngFor="let offer of acceptedOffers">
-      <offer [offer]="offer"></offer>
-    </div>
-  </mat-expansion-panel>
+  <accepted-offers></accepted-offers>
 </mat-accordion>
 

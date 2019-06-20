@@ -7,13 +7,7 @@
 <br />
 
 <mat-card class="card-container" *ngIf="isOfferFound">
-  <mat-card-header>
-    <div mat-card-avatar class="header-image"
-         [style.backgroundImage]="'url('+ offer.iconUrl +')'">
-    </div>
-    <mat-card-title>{{ offer.title }}</mat-card-title>
-    <mat-card-subtitle>By {{ offer.merchantName }}</mat-card-subtitle>
-  </mat-card-header>
+  <offer-header [offer]="offer"></offer-header>
   <mat-card-content>
     <p>{{ offer.description }}</p>
   </mat-card-content>
