@@ -7,8 +7,8 @@
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/hotdeal.png",
     "merchantName": "Larry Page",
     "price": 2000,
-    "durationInHours": 72,
-    "creationTime": 1561011665851
+    "durationInHours": 30,
+    "creationTime": 1561024068623
   }, {
     "id": 2,
     "title": "Cool offer",
@@ -17,8 +17,8 @@
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire1.png",
     "merchantName": "Sergey Brin",
     "price": 4000,
-    "durationInHours": 42,
-    "creationTime": 1561011765851
+    "durationInHours": 26,
+    "creationTime": 1561024068623
   }],
   "invitedOffers": [{
     "id": 3,
@@ -28,8 +28,8 @@
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire2.png",
     "merchantName": "Larry Page",
     "price": 10000,
-    "durationInHours": 32,
-    "creationTime": 1561013665851
+    "durationInHours": 22,
+    "creationTime": 1561024068623
   }, {
     "id": 4,
     "title": "Cool invited offer",
@@ -38,8 +38,8 @@
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/deal1.png",
     "merchantName": "Sergey Brin",
     "price": 20000,
-    "durationInHours": 12,
-    "creationTime": 1561012665851
+    "durationInHours": 14,
+    "creationTime": 1561024068623
   }],
   "acceptedOffers": [{
     "id": 5,
@@ -49,8 +49,8 @@
     "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
     "merchantName": "Larry Page",
     "price": 2000,
-    "durationInHours": 52,
-    "creationTime": 1561011675851
+    "durationInHours": 15,
+    "creationTime": 1561024068623
   }, {
     "id": 6,
     "title": "Cool accepted offer",
@@ -59,7 +59,7 @@
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/deal1.png",
     "merchantName": "Sergey Brin",
     "price": 12000,
-    "durationInHours": 42,
-    "creationTime": 1561011668850
+    "durationInHours": 17,
+    "creationTime": 1561024068623
   }]
 }

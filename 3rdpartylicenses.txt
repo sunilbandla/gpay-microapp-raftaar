@@ -32,6 +32,9 @@ MIT
 @angular/core
 MIT
 
+@angular/forms
+MIT
+
 @angular/material
 MIT
 The MIT License
@@ -59,9 +62,13 @@ THE SOFTWARE.
 
 @angular/material/button
 
+@angular/material/button-toggle
+
 @angular/material/card
 
 @angular/material/expansion
+
+@angular/material/icon
 
 @angular/material/progress-spinner
 
