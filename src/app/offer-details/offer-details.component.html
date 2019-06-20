@@ -28,7 +28,7 @@
   <mat-card-actions>
     <mat-button-toggle-group name="buyType" aria-label="Buy Type">
       <mat-button-toggle value="buySmallGroup"
-                         (click)="startPayment(offer, getSmallGroupPrice(offer))">
+                         (click)="startPayment(offer, offer.price - getSmallGroupPrice(offer))">
         <div>
           <mat-icon aria-hidden="false" aria-label="Group" class="group-icon mat-primary">
             person_add
@@ -40,7 +40,7 @@
         </mat-card-title>
       </mat-button-toggle>
       <mat-button-toggle value="buyMediumGroup"
-                         (click)="startPayment(offer, getMediumGroupPrice(offer))">
+                         (click)="startPayment(offer, offer.price - getMediumGroupPrice(offer))">
         <div>
           <mat-icon aria-hidden="false" aria-label="Group" class="group-icon mat-accent">
             group_add
