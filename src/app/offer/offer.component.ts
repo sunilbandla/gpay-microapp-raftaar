@@ -20,4 +20,8 @@ export class OfferComponent implements OnInit {
   share(offer: Offer) {
     OfferService.shareOffer(offer);
   }
+
+  getOfferExpirationTime(offer: Offer) {
+    return OfferService.getOfferExpirationTime(offer);
+  }
 }

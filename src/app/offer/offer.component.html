@@ -5,6 +5,10 @@
     </div>
     <mat-card-title>{{ offer.title }}</mat-card-title>
     <mat-card-subtitle>By {{ offer.merchantName }}</mat-card-subtitle>
+    <div class="price-container">
+      <mat-card-title>{{ offer.price | currency:'INR' }}</mat-card-title>
+      <mat-card-subtitle>{{ getOfferExpirationTime(offer) }}</mat-card-subtitle>
+    </div>
   </mat-card-header>
   <mat-card-content>
     <p>{{ offer.description }}</p>

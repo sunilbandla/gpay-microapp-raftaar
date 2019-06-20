@@ -127,7 +127,16 @@ export class OfferService {
       url: `https://microapps.google.com/com.google.internal.microhack.app9?offerId=${offer.id}`,
     });
   }
-  
+
+  static getOfferExpirationTime(offer: Offer) {
+    const expirationTime = offer.creationTime + offer.durationInHours * 60 * 60;
+    const expirationInHours = (expirationTime - offer.creationTime) / (60 * 60);
+    if (expirationInHours < 1) {
+      return `Expires in ${expirationInHours * 60} minutes`;
+    }
+    return `Expires in ${Math.floor(expirationInHours * 100)/100} hours`;
+  }
+
   private removeAcceptedOffersFromInvitedOffers(invitedOffers, acceptedOffers) {
     const acceptedOfferIdToOffer = acceptedOffers.reduce((acc, offer) => {
       acc[offer.id] = offer;

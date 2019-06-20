@@ -5,7 +5,7 @@ export interface Offer {
   description: string;
   merchantName: string;
   price: number;
-  duration: number;
+  durationInHours: number;
   creationTime: number;
   isAccepted: boolean;
 }

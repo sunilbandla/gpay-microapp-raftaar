@@ -10,8 +10,8 @@ const paymentRequest = {
   allowedPaymentMethods: [{
     type: 'UPI',
     parameters: {
-      payeeVpa: 'dim-sum-dko@icici',
-      payeeName: 'Dko Dim Sum',
+      payeeVpa: 'microhackers-9@axis',
+      payeeName: 'MicroHackers 9',
       mcc: '0000',
       transactionReferenceId: 1,
       transactionId: 'AXI1',
@@ -46,7 +46,7 @@ export class PaymentService {
       `AXI${this.transactionId++}`;
     paymentRequest.allowedPaymentMethods[0].parameters.transactionReferenceId =
       this.transactionReferenceId++;
-    paymentRequest.transactionInfo.totalPrice = offer.price || 100;
+    paymentRequest.transactionInfo.totalPrice = offer.price || 1;
     // return Promise.resolve();
     // TODO
     return microapps.requestPayment(paymentRequest);

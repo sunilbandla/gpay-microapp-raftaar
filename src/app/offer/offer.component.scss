@@ -5,3 +5,14 @@
   padding: 30px;
   border-top: 1px solid $light-gray;
 }
+
+.price-container {
+  position: absolute;
+  right: 20px;
+  .mat-card-title {
+    font-size: 18px;
+  }
+  .mat-card-subtitle {
+    font-size: 13px;
+  }
+}
