@@ -4,6 +4,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Offer } from '../services/Offer';
 import { OfferService } from '../services/offer.service';
 
+// https://developers.google.com/pay/api/web/reference/object#PaymentDataRequest
+const paymentRequest = {
+  apiVersion: 2,
+  apiVersionMinor: 0,
+  allowedPaymentMethods: [{
+    type: 'UPI',
+    parameters: {
+      'payeeVpa': 'dim-sum-dko@icici',
+      'payeeName': 'Dko Dim Sum',
+      'mcc': '0000',
+      'transactionReferenceId': 1,
+      'transactionId': 1,
+    },
+    tokenizationSpecification: {type: 'DIRECT', parameters: {}}
+  }],
+  merchantInfo: {merchantId: 'Example Merchant'},
+  transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPrice: 0,
+      currencyCode: 'INR'
+  }
+};
+
 @Component({
   selector: 'offer-details',
   templateUrl: './offer-details.component.html',
@@ -39,8 +62,17 @@ export class OfferDetailsComponent implements OnInit {
       });
     });
   }
-
+  
   startPayment(offer: Offer) {
+    paymentRequest.transactionInfo.totalPrice = totalPrice
+    microapps.requestPayment(paymentRequest).then((response) => {
+      onPaymentSuccess(offer);
+    }).catch((error) => {
+      onPaymentFailure(`An error occurred: ${error}`);
+    });
+  };
+
+  onPaymentSuccess(offer: Offer) {
     this.offerService.saveAcceptedOffer(offer);
     this.matSnackbar.open("Payment successful", "Close", {
       duration: 2000,
@@ -49,5 +81,11 @@ export class OfferDetailsComponent implements OnInit {
     setTimeout(() => {
       this.router.navigateByUrl('/');
     }, 3000);
+  }
+  
+  onPaymentFailure(message) {
+    this.matSnackbar.open(`Payment failed.\n ${message}`, "Close", {
+      duration: 2000,
+    });
   }
 }
