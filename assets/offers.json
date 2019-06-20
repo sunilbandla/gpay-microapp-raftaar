@@ -4,30 +4,42 @@
     "title": "Best offer",
     "description": "This is the best offer ever.",
     "detailsUrl": "google.com",
-    "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
-    "merchantName": "Larry Page"
+    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/hotdeal.png",
+    "merchantName": "Larry Page",
+    "price": 2000,
+    "durationInHours": 72,
+    "creationTime": 1561011665851
   }, {
     "id": 2,
     "title": "Cool offer",
     "description": "This is the coolest offer ever.",
     "detailsUrl": "google.org",
-    "iconUrl": "https://material.angular.io/favicon.ico",
-    "merchantName": "Sergey Brin"
+    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire1.png",
+    "merchantName": "Sergey Brin",
+    "price": 4000,
+    "durationInHours": 42,
+    "creationTime": 1561011765851
   }],
   "invitedOffers": [{
     "id": 3,
     "title": "Best invited offer",
     "description": "This is the best offer ever.",
     "detailsUrl": "google.com",
-    "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
-    "merchantName": "Larry Page"
+    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire2.png",
+    "merchantName": "Larry Page",
+    "price": 10000,
+    "durationInHours": 32,
+    "creationTime": 1561013665851
   }, {
     "id": 4,
     "title": "Cool invited offer",
     "description": "This is the coolest offer ever.",
     "detailsUrl": "google.org",
-    "iconUrl": "https://material.angular.io/favicon.ico",
-    "merchantName": "Sergey Brin"
+    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/deal1.png",
+    "merchantName": "Sergey Brin",
+    "price": 20000,
+    "durationInHours": 12,
+    "creationTime": 1561012665851
   }],
   "acceptedOffers": [{
     "id": 5,
@@ -35,13 +47,19 @@
     "description": "This is the best offer ever.",
     "detailsUrl": "google.com",
     "iconUrl": "https://ssl.gstatic.com/atari/images/favicon_2.ico",
-    "merchantName": "Larry Page"
+    "merchantName": "Larry Page",
+    "price": 2000,
+    "durationInHours": 52,
+    "creationTime": 1561011675851
   }, {
     "id": 6,
     "title": "Cool accepted offer",
     "description": "This is the coolest offer ever.",
     "detailsUrl": "google.org",
-    "iconUrl": "https://material.angular.io/favicon.ico",
-    "merchantName": "Sergey Brin"
+    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/deal1.png",
+    "merchantName": "Sergey Brin",
+    "price": 12000,
+    "durationInHours": 42,
+    "creationTime": 1561011668850
   }]
 }
