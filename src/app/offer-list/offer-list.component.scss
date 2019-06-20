@@ -11,3 +11,12 @@ mat-expansion-panel-header {
 :host ::ng-deep .mat-expansion-panel-body {
   padding: 0 !important;
 }
+
+.header-image {
+  background-size: cover;
+  margin-right: 15px;
+}
+
+.panel-title-text {
+  margin-top: 10px;
+}

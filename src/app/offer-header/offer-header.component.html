@@ -6,6 +6,8 @@
   <mat-card-subtitle>By {{ offer.merchantName }}</mat-card-subtitle>
   <div class="price-container">
     <mat-card-title>{{ offer.price | currency:'INR' }}</mat-card-title>
-    <mat-card-subtitle>{{ getOfferExpirationTime(offer) }}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!!getOfferExpirationTime(offer)">
+      {{ getOfferExpirationTime(offer) }}
+    </mat-card-subtitle>
   </div>
 </mat-card-header>

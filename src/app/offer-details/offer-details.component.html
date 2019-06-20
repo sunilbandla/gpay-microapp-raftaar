@@ -2,7 +2,16 @@
 <h3 *ngIf="isOfferIdPresent && isLoading">Loading offer ...</h3>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-<a mat-raised-button [routerLink]="['/']">View all available offers.</a>
+<a mat-raised-button [routerLink]="['/']">
+  <mat-icon aria-hidden="false" aria-label="View all offers">home</mat-icon>
+  View all offers
+</a>
+<button mat-raised-button color="accent"
+        class="shareButton"
+        (click)="share(offer)">
+  Share
+  <mat-icon aria-hidden="false" aria-label="Share">share</mat-icon>
+</button>
 <br />
 <br />
 
@@ -10,15 +19,28 @@
   <offer-header [offer]="offer"></offer-header>
   <mat-card-content>
     <p>{{ offer.description }}</p>
+    <br />
+    <em>
+      Invite people to buy this item for less.
+    </em>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary"
-            *ngIf="!offer.isAccepted"
-            (click)="startPayment(offer)">
-      Pay
-    </button>
-    <button mat-raised-button color="accent"
-            [ngClass]="{ 'shareButton': !offer.isAccepted }"
-            (click)="share(offer)">Share</button>
+    <mat-button-toggle-group name="buyType" aria-label="Buy Type">
+      <mat-button-toggle value="buySolo"
+                         (click)="startPayment(offer)">
+        Buy
+      </mat-button-toggle>
+      <mat-button-toggle value="buySmallGroup"
+                         (click)="startPayment(offer)">
+        Buy for {{ getSmallGroupPrice(offer) | currency:'INR':'symbol':'1.0-0' }} less
+        <mat-icon aria-hidden="false" aria-label="Group">group</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="buyMediumGroup"
+                         (click)="startPayment(offer)">
+        Buy for {{ getMediumGroupPrice(offer) | currency:'INR':'symbol':'1.0-0' }} less
+        <mat-icon aria-hidden="false" aria-label="Group">group</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Group">group</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </mat-card-actions>
 </mat-card>

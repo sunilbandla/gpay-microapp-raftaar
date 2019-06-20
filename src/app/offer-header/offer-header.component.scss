@@ -1,10 +1,20 @@
+.mat-card-title {
+  max-width: 120px;
+  word-break: break-word;
+  font-size: 18px;
+}
+
 .price-container {
   position: absolute;
   right: 20px;
   .mat-card-title {
-    font-size: 18px;
+    font-size: 16px;
   }
   .mat-card-subtitle {
     font-size: 13px;
   }
+}
+
+.header-image {
+  background-size: cover;
 }

@@ -72,4 +72,12 @@ export class OfferDetailsComponent implements OnInit {
   share(offer: Offer) {
     OfferService.shareOffer(offer);
   }
+
+  getSmallGroupPrice(offer: Offer) {
+    return Math.round(offer.price * 0.1);
+  }
+
+  getMediumGroupPrice(offer: Offer) {
+    return Math.round(offer.price * 0.2);
+  }
 }

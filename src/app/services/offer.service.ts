@@ -129,12 +129,17 @@ export class OfferService {
   }
 
   static getOfferExpirationTime(offer: Offer) {
-    const expirationTime = offer.creationTime + offer.durationInHours * 60 * 60;
-    const expirationInHours = (expirationTime - offer.creationTime) / (60 * 60);
+    const expirationTime = offer.creationTime +
+      offer.durationInHours * 60 * 60 * 1000;
+    const expirationInHours = Math.abs(expirationTime - Date.now()) / (60 * 60 * 1000);
     if (expirationInHours < 1) {
-      return `Expires in ${expirationInHours * 60} minutes`;
+      return `Expires in ${Math.round(expirationInHours * 60)} minutes`;
     }
-    return `Expires in ${Math.floor(expirationInHours * 100)/100} hours`;
+    return `Expires in ${Math.floor(Math.round(expirationInHours * 100)/100)} hours`;
+  }
+
+  static resetState() {
+    sessionStorage.clear();
   }
 
   private removeAcceptedOffersFromInvitedOffers(invitedOffers, acceptedOffers) {
@@ -176,4 +181,5 @@ export class OfferService {
     }
     return JSON.parse(offers);
   }
+
 }

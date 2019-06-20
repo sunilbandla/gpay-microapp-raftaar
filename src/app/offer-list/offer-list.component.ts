@@ -15,7 +15,7 @@ export class OfferListComponent implements OnInit {
   title: string;
 
   @Input()
-  description?: string;
+  iconUrl?: string;
 
   constructor() { }
 

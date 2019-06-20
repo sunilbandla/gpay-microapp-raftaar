@@ -7,28 +7,14 @@ import { OfferService } from '../services/offer.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  recommendedOffers;
-  invitedOffers;
-  acceptedOffers;
 
-  constructor(
-    private offerService: OfferService
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.offerService.getRecommendedOffers()
-      .then(offers => {
-        this.recommendedOffers = offers;
-      });
-    this.offerService.getInvitedOffers()
-      .then(offers => {
-        this.invitedOffers = offers;
-      });
-    this.offerService.getAcceptedOffers()
-      .then(offers => {
-        this.acceptedOffers = offers;
-      });
   }
 
+  resetState() {
+    OfferService.resetState();
+  }
 }

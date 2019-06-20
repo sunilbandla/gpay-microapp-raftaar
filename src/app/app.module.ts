@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatExpansionModule, MatProgressSpinnerModule, MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatButtonToggleModule, MatCardModule, MatDividerModule, MatExpansionModule, MatIconModule, MatProgressSpinnerModule, MatSnackBarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +37,9 @@ import { RecommendedOffersComponent } from './recommended-offers/recommended-off
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    MatDividerModule,
     HttpClientModule,
   ],
   providers: [
