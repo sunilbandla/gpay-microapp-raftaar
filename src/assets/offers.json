@@ -1,12 +1,12 @@
 {
   "recommendedOffers": [{
     "id": 1,
-    "title": "Best offer",
-    "description": "This is the best offer ever.",
-    "detailsUrl": "google.com",
-    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/hotdeal.png",
-    "merchantName": "Larry Page",
-    "price": 2000,
+    "title": "Croma 263L Double Door Refrigerator",
+    "description": "3 Star Frost Free Double Door Inverter Refrigerator, get it at this super low price for a group booking of 20 buyers",
+    "detailsUrl": "https://www.croma.com/croma-263-l-3-star-frost-free-double-door-inverter-refrigerator-crar2522-silver-/p/212155?utm_source=google&utm_medium=pla&utm_campaign=Croma_OL_PLA_2019",
+    "iconUrl": "https://assets.croma.com/medias/sys_master/images/images/h64/hc7/8853639168030/212155.webp",
+    "merchantName": "Croma",
+    "price": 25000,
     "durationInHours": 30,
     "creationTime": 1561024068623
   }, {
