@@ -47,9 +47,7 @@ export class PaymentService {
     paymentRequest.allowedPaymentMethods[0].parameters.transactionReferenceId =
       this.transactionReferenceId++;
     paymentRequest.transactionInfo.totalPrice = offer.price || 1;
-    // return Promise.resolve();
-    // TODO
-    return microapps.requestPayment(paymentRequest);
+    return microapps.blockFund(paymentRequest);
   };
 
 }
