@@ -42,8 +42,8 @@ export class OfferDetailsComponent implements OnInit {
     });
   }
   
-  startPayment(offer: Offer) {
-    this.paymentService.startPayment(offer)
+  startPayment(offer: Offer, price: number) {
+    this.paymentService.startPayment(offer, price)
       .then((response) => {
         console.log(response);
         this.onPaymentSuccess(offer);

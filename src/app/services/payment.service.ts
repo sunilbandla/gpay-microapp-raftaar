@@ -41,12 +41,12 @@ export class PaymentService {
 
   constructor() { }
 
-  startPayment(offer: Offer) {
+  startPayment(offer: Offer, price: number) {
     paymentRequest.allowedPaymentMethods[0].parameters.transactionId =
       `AXI${this.transactionId++}`;
     paymentRequest.allowedPaymentMethods[0].parameters.transactionReferenceId =
       this.transactionReferenceId++;
-    paymentRequest.transactionInfo.totalPrice = offer.price || 1;
+    paymentRequest.transactionInfo.totalPrice = price || 1;
     return microapps.requestPayment(paymentRequest);
   };
 
