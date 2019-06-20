@@ -8,10 +8,25 @@ import { OfferService } from '../services/offer.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.router.navigate(['/offers', { id }]);
+        return;
+      }
+      const list = params.get('list');
+      if (list) {
+        this.router.navigate([`/${list}`]);
+        return;
+      }
+    });
   }
 
   resetState() {
