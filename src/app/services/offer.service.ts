@@ -123,8 +123,8 @@ export class OfferService {
 
   static shareOffer(offer: Offer) {
     microapps.requestSharing({
-      text: 'Check out Raftaar!',
-      url: `https://microapps.google.com/com.google.internal.microhack.app9/offers?id=${offer.id}`,
+      text: 'Check out GrouPay!',
+      url: `https://microapps.google.com/com.google.internal.microhack.app9?id=${offer.id}`,
     });
   }
 

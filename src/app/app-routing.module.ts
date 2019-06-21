@@ -7,7 +7,7 @@ import { RecommendedOffersComponent } from './recommended-offers/recommended-off
 import { InvitedOffersComponent } from './invited-offers/invited-offers.component';
 
 const routes: Routes = [
-  { path: '/:id/:list', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'offers/:id', component: OfferDetailsComponent },
   { path: 'accepted-offers', component: AcceptedOffersComponent },
   { path: 'recommended-offers', component: RecommendedOffersComponent },
