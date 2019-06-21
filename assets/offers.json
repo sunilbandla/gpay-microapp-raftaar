@@ -11,19 +11,19 @@
     "creationTime": 1561024068623
   }, {
     "id": 2,
-    "title": "Cool offer",
-    "description": "This is the coolest offer ever.",
-    "detailsUrl": "google.org",
+    "title": "Google Pixel 3",
+    "description": "Pixel is the best Android phone ever.",
+    "detailsUrl": "google.com/pixel",
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire1.png",
     "merchantName": "Sergey Brin",
-    "price": 4000,
+    "price": 40000,
     "durationInHours": 26,
     "creationTime": 1561024068623
   }],
   "invitedOffers": [{
     "id": 3,
-    "title": "Best invited offer",
-    "description": "This is the best offer ever.",
+    "title": "Google Home",
+    "description": "This will change your life forever.",
     "detailsUrl": "google.com",
     "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire2.png",
     "merchantName": "Larry Page",
