@@ -11,12 +11,12 @@
     "creationTime": 1561024068623
   }, {
     "id": 2,
-    "title": "Google Pixel 3",
-    "description": "Pixel is the best Android phone ever.",
+    "title": "Pride T-shirt",
+    "description": "Cool, dark gray t-shirt.",
     "detailsUrl": "google.com/pixel",
-    "iconUrl": "https://sunilbandla.github.io/gpay-microapp-raftaar/assets/fire1.png",
-    "merchantName": "Sergey Brin",
-    "price": 40000,
+    "iconUrl": "https://images-na.ssl-images-amazon.com/images/I/71Ff3K%2BEt%2BL._UY550_.jpg",
+    "merchantName": "Jabong",
+    "price": 1000,
     "durationInHours": 26,
     "creationTime": 1561024068623
   }],
